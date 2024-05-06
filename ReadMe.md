@@ -1,4 +1,6 @@
-1. Problem Statement
+# Steps to follow
+
+1.  Problem Statement 
 2. Hypothesis Generation
 3. Getting the system ready and loading the data
 3. Understanding the data
