@@ -13,5 +13,3 @@
 9. Model building: part 2 (Apply Deep Learning classification algorithm with step 8)
 10. Model deployment - Dash app on https://www.render.com
 
-
- testing my branch
