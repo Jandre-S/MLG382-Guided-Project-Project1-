@@ -1,4 +1,4 @@
-# Phase 2: Data Understanding
+# Point 3: Data Understanding
 - Gathering initial data and exploring its characteristics.
 - Assessing data quality, completeness, and relevance.
 - Identifying potential data issues and limitations.
