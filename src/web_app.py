@@ -2,15 +2,17 @@ from flask import Flask, render_template, request
 import pandas as pd
 import joblib
 
+from preprocess_data import preprocess_data
+
 app = Flask(__name__)
 
 # Load the trained model
-model = joblib.load('../artifacts/model_2.h5')
+model = joblib.load("./artifacts/model_2.pkl")
 
 # Define the home route
 @app.route('/')
 def home():
-    return render_template('/Templates/index.html')
+    return render_template('./index.html')
 
 # Define the prediction route
 @app.route('/predict', methods=['POST'])
@@ -33,20 +35,22 @@ def predict():
         
         # Create a DataFrame from user input
         input_df = pd.DataFrame([input_data])
+
+        preprocess_df = preprocess_data(input_df)
         
         # Preprocess the input (encode categorical variables)
-        input_encoded = pd.get_dummies(input_df)
+        input_encoded = pd.get_dummies(preprocess_df)
         
         # Make prediction using the model
         prediction = model.predict(input_encoded)[0]
         
         # Map prediction back to loan status
         if prediction == 'Y':
-            loan_status = 'Approved'
+            Loan_status = 'Approved'
         else:
-            loan_status = 'Not Approved'
+            Loan_status = 'Not Approved'
         
-        return render_template('/Templates/result.html', loan_status=loan_status)
+        return render_template('result.html', loan_status=Loan_status)
 
 if __name__ == '__main__':
     app.run(debug=True)
