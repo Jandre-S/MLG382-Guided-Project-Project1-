@@ -12,7 +12,7 @@ def preprocess_data(df):
         'Y': 1, 'N': 0
     }
 
-    binary_categorical_features = ['Gender', 'Married', 'Education', 'Self_Employed', 'Loan_Status']
+    binary_categorical_features = ['Gender', 'Married', 'Education', 'Self_Employed']
     for feature in binary_categorical_features:
         df[feature] = df[feature].map(binary_mapping)
         df[feature].fillna(df[feature].mode()[0], inplace=True)

@@ -12,7 +12,7 @@ model = joblib.load("./artifacts/model_2.pkl")
 # Define the home route
 @app.route('/')
 def home():
-    return render_template('./index.html')
+    return render_template('index.html')
 
 # Define the prediction route
 @app.route('/predict', methods=['POST'])
@@ -39,18 +39,18 @@ def predict():
         preprocess_df = preprocess_data(input_df)
         
         # Preprocess the input (encode categorical variables)
-        input_encoded = pd.get_dummies(preprocess_df)
-        
+        #input_encoded = pd.get_dummies(preprocess_df)
         # Make prediction using the model
-        prediction = model.predict(input_encoded)[0]
-        
+
+        prediction = model.predict(preprocess_df)[0]
+
         # Map prediction back to loan status
         if prediction == 'Y':
-            Loan_status = 'Approved'
+            loan_status = 'Approved'
         else:
-            Loan_status = 'Not Approved'
+            loan_status = 'Not Approved'
         
-        return render_template('result.html', loan_status=Loan_status)
+        return render_template('result.html', Loan_status=loan_status)
 
 if __name__ == '__main__':
     app.run(debug=True)
