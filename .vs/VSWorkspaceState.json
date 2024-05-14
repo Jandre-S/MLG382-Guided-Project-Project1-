@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\artifacts",
+    "\\data",
+    "\\notebooks",
+    "\\src"
   ],
+  "SelectedNode": "\\src\\preprocess_data.py",
   "PreviewInSolutionExplorer": false
 }

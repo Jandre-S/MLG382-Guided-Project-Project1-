@@ -1,28 +1,10 @@
-
-import warnings
 import pandas as pd
-import numpy as np
-import skimpy as sm
 
-FilePath_raw_data = './data/raw_data.csv'
-FilePath_validation = './data/validation.csv'
+def load_raw_data():
+    raw_data = pd.read_csv("../data/raw_data.csv")
+    return raw_data
 
-warnings.simplefilter(action="ignore", category=FutureWarning)
+def load_validation():
+    validation = pd.read_csv("../data/validation.csv")
+    return validation
 
-raw_data_DataFrame = pd.read_csv(FilePath_raw_data)
-
-print(raw_data_DataFrame.head())
-
-print(raw_data_DataFrame.info())
-
-print(f'The data has {raw_data_DataFrame.shape[0]} rows and {raw_data_DataFrame.shape[1]} columns.')
-
-print(sm.skim(raw_data_DataFrame))
-
-missing_values = (
-    raw_data_DataFrame.isnull().sum()/len(raw_data_DataFrame)*100
-).astype(int)
-
-print(f'Column\t\t\t% missing')
-print(f'{"-"}'*35)
-print(missing_values)

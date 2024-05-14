@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Approval Prediction</title>
+</head>
+<body>
+    <h1>Loan Approval Prediction</h1>
+    <form action="/predict" method="post">
+        <label>Gender:</label>
+        <input type="text" name="gender"><br><br>
+        
+        <label>Married:</label>
+        <input type="text" name="married"><br><br>
+        
+        <label>Dependents:</label>
+        <input type="text" name="dependents"><br><br>
+        
+        <label>Education:</label>
+        <input type="text" name="education"><br><br>
+        
+        <label>Self Employed:</label>
+        <input type="text" name="self_employed"><br><br>
+        
+        <label>Applicant Income:</label>
+        <input type="number" name="applicant_income"><br><br>
+        
+        <label>Coapplicant Income:</label>
+        <input type="number" name="coapplicant_income"><br><br>
+        
+        <label>Loan Amount:</label>
+        <input type="number" name="loan_amount"><br><br>
+        
+        <label>Loan Amount Term:</label>
+        <input type="number" name="loan_amount_term"><br><br>
+        
+        <label>Credit History:</label>
+        <input type="number" name="credit_history"><br><br>
+        
+        <label>Property Area:</label>
+        <input type="text" name="property_area"><br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
